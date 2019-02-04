@@ -12,22 +12,20 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'RollTheDice'
-DESCRIPTION = 'Rules: roll the dice 100 times:' \
-              '1-2 you have to go one step down' \
-              '3-5 you have to go one step up' \
-              '6 roll your ankle and go up the amount of dots' \
-              'additionally you have 0.001 chance of falling down the stairs.' \
-              'We want to know what are the odds to reach step 60'
+NAME = 'StatsOfLeo'
+DESCRIPTION = 'Idea: cut movie titles from wikipedia' \
+              'Prepare data for api' \
+              'Use omdbapi to get movies' \
+              'Present histogram of movie rates with Leonardo Dicaprio'
 URL = 'https://github.com/Artix1500/PythonLearn'
 EMAIL = 'artur.haczek@interia.pl'
 AUTHOR = 'Artur Haczek'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '1.1'
+VERSION = '2.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'numpy', 'matplotlib',
+    'requests', 'matplotlib', 'bs4'
 ]
 
 # What packages are optional?
