@@ -38,8 +38,9 @@ correlation_dataframe = training_examples.copy()
 correlation_dataframe["target"] = training_targets["median_house_value"]
 
 correlation_dataframe.corr()
-print('Correlation with target')
-print(correlation_dataframe.corr())
+print(f"Correlation with target: {correlation_dataframe.corr()['target']}")
+print(f"median_income: {correlation_dataframe.corr()['median_income']['target']}")
+print(f"latitude: {correlation_dataframe.corr()['latitude']['target']}")
 
 minimal_features = [
   "median_income",
@@ -50,15 +51,17 @@ minimal_training_examples = training_examples[minimal_features]
 minimal_validation_examples = validation_examples[minimal_features]
 
 linear_regressor = train_model(
-    learning_rate=0.01,
-    steps=500,
-    batch_size=5,
+    learning_rate=0.015,
+    steps=700,
+    batch_size=6,
     training_examples=minimal_training_examples,
     training_targets=training_targets,
     validation_examples=minimal_validation_examples,
     validation_targets=validation_targets)
 
+
 california_housing_test_data = pd.read_csv("https://download.mlcc.google.com/mledu-datasets/california_housing_test.csv", sep=",")
+# california_housing_test_data = california_housing_test_data.head(500)
 
 test_examples = preprocess_features(california_housing_test_data)
 test_targets = preprocess_targets(california_housing_test_data)
